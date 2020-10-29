@@ -18,11 +18,10 @@ colors = [
 class Figure:
     x = 0
     y = 0
-
     # 4x4 격자(0~15) 안에 각 테트리스 모양을 리스트로 지정
     # 회전 = 엄밀하게 오브젝트가 회전하는 것이 아니라, 다음 인덱스를 그려주는 것
 
-   figures = [
+    figures = [
         [[1, 5, 9, 13], [4, 5, 6, 7]],
         [[4, 5, 9, 10], [2, 6, 5, 9]],
         [[6, 7, 9, 10], [1, 5, 6, 10]],
@@ -32,18 +31,19 @@ class Figure:
         [[1, 2, 5, 6]],
     ]
 
-    def __init__(self, x, y):
+
+def __init__(self, x, y):
         self.x = x
         self.y = y
         self.type = randint(0, len(self.figures) - 1)
         self.color = randint(1, len(colors) - 1)
         self.rotation = 0
 
-    def image(self):
-        return self.figures[self.type][self.rotation]
+def image(self):
+    return self.figures[self.type][self.rotation]
 
-    def rotate(self):
-        self.rotation = (self.rotation + 1) % len(self.figures[self.type])
+def rotate(self):
+    self.rotation = (self.rotation + 1) % len(self.figures[self.type])
 
 
 class Tetris:
